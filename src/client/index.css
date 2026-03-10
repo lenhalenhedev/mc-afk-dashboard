@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html { font-family: 'Inter', system-ui, sans-serif; }
+
+  :root {
+    --bg-950: #0a0c0f;
+    --bg-900: #0f1117;
+    --bg-800: #161b22;
+    --bg-700: #1c2330;
+    --bg-600: #21262d;
+    --border: #30363d;
+    --border-light: #3d444d;
+    --accent-green: #3fb950;
+    --accent-red: #f85149;
+    --accent-yellow: #d29922;
+    --accent-blue: #58a6ff;
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --text-muted: #484f58;
+  }
+
+  body {
+    background: var(--bg-950);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--border-light); }
+}
+
+@layer components {
+  .card {
+    @apply bg-bg-800 border border-border rounded-lg;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium
+           transition-all duration-150 cursor-pointer select-none
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-green/20 text-accent-green border border-accent-green/30
+           hover:bg-accent-green/30 hover:border-accent-green/50;
+  }
+
+  .btn-danger {
+    @apply btn bg-accent-red/20 text-accent-red border border-accent-red/30
+           hover:bg-accent-red/30 hover:border-accent-red/50;
+  }
+
+  .btn-secondary {
+    @apply btn bg-bg-700 text-[#8b949e] border border-border
+           hover:bg-bg-600 hover:text-[#e6edf3] hover:border-border-light;
+  }
+
+  .btn-blue {
+    @apply btn bg-accent-blue/20 text-accent-blue border border-accent-blue/30
+           hover:bg-accent-blue/30;
+  }
+
+  .btn-yellow {
+    @apply btn bg-accent-yellow/20 text-accent-yellow border border-accent-yellow/30
+           hover:bg-accent-yellow/30;
+  }
+
+  .input {
+    @apply w-full bg-bg-900 border border-border rounded-md px-3 py-2 text-sm
+           text-[#e6edf3] placeholder-[#484f58]
+           focus:outline-none focus:border-accent-blue/60 focus:ring-1 focus:ring-accent-blue/30
+           transition-colors;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-[#8b949e] mb-1.5 uppercase tracking-wide;
+  }
+
+  .status-dot {
+    @apply inline-block w-2 h-2 rounded-full flex-shrink-0;
+  }
+}
+
+/* Terminal log colours */
+.log-error   { color: #f85149; }
+.log-warn    { color: #d29922; }
+.log-chat    { color: #58a6ff; }
+.log-system  { color: #8b949e; }
+.log-info    { color: #3fb950; }
+
+/* Minecraft-style blinking cursor */
+.mc-cursor::after {
+  content: '█';
+  animation: blink 1.2s step-end infinite;
+}
