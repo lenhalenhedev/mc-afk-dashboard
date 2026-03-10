@@ -1,0 +1,47 @@
+{
+  "name": "mc-afk-dashboard",
+  "version": "1.0.0",
+  "description": "Minecraft AFK Bot Manager with Real-time Web Dashboard",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently --names \"SERVER,CLIENT\" --prefix-colors \"cyan,magenta\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "node --watch --env-file=.env src/server/index.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node --env-file=.env src/server/index.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "mineflayer": "^4.23.0",
+    "mineflayer-pathfinder": "^2.4.5",
+    "mineflayer-auto-eat": "^5.0.0",
+    "express": "^4.18.3",
+    "socket.io": "^4.7.4",
+    "better-sqlite3": "^9.4.3",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.2.0",
+    "dotenv": "^16.4.5",
+    "winston": "^3.12.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^9.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.22.3",
+    "zustand": "^4.5.2",
+    "socket.io-client": "^4.7.4",
+    "lucide-react": "^0.364.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.2.0",
+    "tailwindcss": "^3.4.3",
+    "postcss": "^8.4.38",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2"
+  }
+}
